@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { NAME, REPO_URL } from './config.js';
+	import { NAME } from './config.js';
 	import { theme } from './theme.svelte.js';
 
 	/** `ontoggle` runs after the theme changes, so the demo can click when its sound is on. */
@@ -22,7 +22,6 @@
 			<a class="link" href="{resolve('/(site)')}#features">Features</a>
 			<a class="link" href="{resolve('/(site)')}#shortcuts">Shortcuts</a>
 			<a class="link" href="{resolve('/(site)')}#install">Install</a>
-			<a class="link" href={REPO_URL}>GitHub</a>
 			<button type="button" class="theme" aria-label="Light mode" aria-pressed={theme.current === 'light'} onclick={toggle}>
 				<svg class="moon" viewBox="0 0 16 16" aria-hidden="true">
 					<path d="M13.5 9.8A5.8 5.8 0 0 1 6.2 2.5a5.8 5.8 0 1 0 7.3 7.3z" />
@@ -155,7 +154,7 @@
 		background-color: color-mix(in srgb, var(--fg) 8%, transparent);
 	}
 
-		.web {
+	.web {
 		display: inline-flex;
 	}
 

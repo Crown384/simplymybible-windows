@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { SITE_NAME, SITE_URL } from '#lib/config.js';
+	import { SITE_NAME, SITE_URL, TWITTER_URL } from '#lib/config.js';
 	import Doc from '#lib/Doc.svelte';
 
 	const title = `Support | ${SITE_NAME}`;
-	const description = 'Help with Bible for iPhone, iPad and Mac, and how to report a problem.';
+	const description = 'Help with Bible for Windows, and how to reach out.';
 	const url = `${SITE_URL}/support`;
-	const issues = 'https://github.com/michaelshimeles/bible-rs/issues';
 </script>
 
 <svelte:head>
@@ -15,37 +14,36 @@
 	<link rel="canonical" href={url} />
 </svelte:head>
 
-<Doc heading="Support" meta="Bible for iPhone, iPad and Mac">
+<Doc heading="Support" meta="Bible for Windows">
 	<p class="lede">
-		Found a problem or have a question? <a href="{issues}/new">Open an issue on GitHub</a>, or
-		<a href={issues}>search the existing ones</a>. Include your device, its system version and the
-		app's version. On iPhone and iPad the version is at the bottom of the Text and theme settings;
-		on the Mac it's under Bible, then About Bible.
+		Have a question or running into an issue with the Windows build? Reach out directly to Stephen on
+		<a href={TWITTER_URL} target="_blank" rel="noopener noreferrer">Twitter / X</a>.
 	</p>
 
-	<h2>Back up or move your notes</h2>
+	<h2>System Requirements</h2>
 	<p>
-		On iPhone and iPad, tap the Text and theme button, the one with two letter A's, and use
-		<strong>Export as Markdown</strong> or <strong>Export as JSON</strong> under Notes and
-		highlights. Your device's iCloud or computer backups also include them.
+		Bible for Windows runs natively on Windows 10 and Windows 11 (64-bit). No installation or background services required — just run the executable.
 	</p>
 
-	<h2>Make the text bigger or smaller</h2>
+	<h2>Back up or export your notes</h2>
 	<p>
-		Use the text size control under Text and theme. The app also follows the text size set for
-		your whole device.
+		Inside the app, use <strong>Export as Markdown</strong> (Ctrl+E) or <strong>Export as JSON</strong> (Ctrl+Shift+E) under Notes and
+		highlights. Your data is stored locally on your PC in a portable SQLite database.
+	</p>
+
+	<h2>Keyboard Shortcuts</h2>
+	<p>
+		Use <strong>Ctrl+K</strong> to quickly jump to any passage or reference, <strong>Ctrl+F</strong> to instant-search across all verses, and <strong>Shift+Ctrl+L</strong> to switch between Light, Sepia, and Dark themes.
 	</p>
 
 	<h2>Translations</h2>
 	<p>
-		The KJV, WEB, BSB, ASV, YLT, Darby and Webster translations are built in and work offline. They
-		are all in the public domain.
+		The KJV, WEB, BSB, ASV, YLT, Darby, and Webster translations are built in and work completely offline.
 	</p>
 
 	<h2>Privacy</h2>
 	<p>
-		Bible collects no data, and the iPhone and iPad app never goes online. The
-		<a href={resolve('/(site)/privacy')}>privacy policy</a> has the details.
+		Bible collects no personal data and runs fully offline. See the
+		<a href={resolve('/(site)/privacy')}>privacy policy</a> for details.
 	</p>
-
 </Doc>

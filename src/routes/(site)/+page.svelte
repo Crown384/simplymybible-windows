@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import DownloadCount from '#lib/DownloadCount.svelte';
 	import Footer from '#lib/Footer.svelte';
 	import Nav from '#lib/Nav.svelte';
 	import CompareCard from '#lib/cards/CompareCard.svelte';
@@ -9,15 +8,15 @@
 	import StudyCard from '#lib/cards/StudyCard.svelte';
 	import ThemesCard from '#lib/cards/ThemesCard.svelte';
 	import TypesetCard from '#lib/cards/TypesetCard.svelte';
-	import { ARCH, MIN_MACOS, NAME, REPO_URL, SITE_NAME, SITE_URL, VERSION, WINDOWS_ARCH, WINDOWS_SIZE } from '#lib/config.js';
+	import { NAME, SITE_NAME, SITE_URL, VERSION, WINDOWS_ARCH, WINDOWS_SIZE } from '#lib/config.js';
 	import Showcase from '#lib/demo/Showcase.svelte';
 	import { Player } from '#lib/demo/player.svelte.js';
 	import { play } from '#lib/demo/sound.js';
 	import { reducedMotion, reveal } from '#lib/motion.svelte.js';
 
-	const title = `${NAME}: a fast, native reader for Windows & Mac | ${SITE_NAME}`;
+	const title = `${NAME}: a fast, native reader for Windows | ${SITE_NAME}`;
 	const description =
-		'A very fast, native Bible reader for Windows and Mac. Beautifully typeset, searchable as you type, with highlights, notes and bookmarks kept on your computer.';
+		'A very fast, native Bible reader for Windows. Beautifully typeset, searchable as you type, with highlights, notes and bookmarks kept on your computer.';
 	const url = `${SITE_URL}/`;
 	const image = `${SITE_URL}/og.jpg`;
 	const imageAlt = `The ${NAME} app icon and name beside the reader open at John 1`;
@@ -29,14 +28,13 @@
 		description,
 		url,
 		image,
-		operatingSystem: 'macOS',
+		operatingSystem: 'Windows 10, Windows 11',
 		applicationCategory: 'ReferenceApplication',
 		offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
 		downloadUrl: `${SITE_URL}/download`,
 		softwareVersion: VERSION
 	}).replaceAll('<', '\\u003c');
-	// A literal closing tag here would end this <script> block.
-	const jsonLd = `<script type="application/ld+json">${app}<\/script>`;
+	const jsonLd = `<script type="application/ld+json">${app}<\\/script>`;
 
 	const player = new Player();
 
@@ -50,7 +48,7 @@
 		},
 		{
 			title: 'Light, sepia and dark',
-			body: 'Three themes made for long reading, from white paper to warm sepia to a soft dark. ⇧⌘L switches between them, and the size, spacing and measure are yours to set.',
+			body: 'Three themes made for long reading, from white paper to warm sepia to a soft dark. Shift+Ctrl+L switches between them, and the size, spacing and measure are yours to set.',
 			Visual: ThemesCard
 		}
 	];
@@ -58,7 +56,7 @@
 	const study = [
 		{
 			title: 'Jump anywhere',
-			body: 'Press ⌘K and type a reference the way you’d write it: jn 3:16, Rom 8, 1co13, even revalation 21. Recent places, translations and commands come up too.',
+			body: 'Press Ctrl+K and type a reference the way you’d write it: jn 3:16, Rom 8, 1co13, even revalation 21. Recent places, translations and commands come up too.',
 			Visual: JumpCard
 		},
 		{
@@ -68,7 +66,7 @@
 		},
 		{
 			title: 'Highlights and notes',
-			body: 'Highlight in six colours, write notes in the margin, bookmark verses and follow a reading plan. It all stays in a file on your Mac, and exports to Markdown or JSON.',
+			body: 'Highlight in six colours, write notes in the margin, bookmark verses and follow a reading plan. It all stays in a file on your PC, and exports to Markdown or JSON.',
 			Visual: StudyCard
 		},
 		{
@@ -79,16 +77,16 @@
 	];
 
 	const shortcuts = [
-		{ keys: ['Ctrl', 'K'], label: 'Jump to a passage (⌘K on Mac)', primary: true },
-		{ keys: ['Ctrl', 'F'], label: 'Search (⌘F on Mac)' },
+		{ keys: ['Ctrl', 'K'], label: 'Jump to a passage', primary: true },
+		{ keys: ['Ctrl', 'F'], label: 'Search' },
 		{ keys: ['←', '→'], label: 'Previous or next chapter' },
-		{ keys: ['⌘[', '⌘]'], label: 'Back and forward' },
+		{ keys: ['Ctrl+[', 'Ctrl+]'], label: 'Back and forward' },
 		{ keys: ['J', 'K'], label: 'Move between verses' },
 		{ keys: ['1–6'], label: 'Highlight in a colour' },
 		{ keys: ['N'], label: 'Write a note' },
 		{ keys: ['C'], label: 'Compare translations' },
-		{ keys: ['⇧', '⌘', 'P'], label: 'Read in parallel' },
-		{ keys: ['⇧', '⌘', 'L'], label: 'Change theme' }
+		{ keys: ['Shift', 'Ctrl', 'P'], label: 'Read in parallel' },
+		{ keys: ['Shift', 'Ctrl', 'L'], label: 'Change theme' }
 	];
 </script>
 
@@ -116,15 +114,6 @@
 	{@html jsonLd}
 </svelte:head>
 
-{#snippet apple()}
-	<svg viewBox="0 0 17 21" aria-hidden="true">
-		<path
-			d="M11.2 4.3c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3zM12.1 5.8c-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.9-.8C4.4 5.9 3 6.8 2.2 8.1c-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.8 2.3 1.1 0 1.6-.7 2.9-.7 1.4 0 1.8.7 2.9.7 1.2 0 2-1.1 2.7-2.2.9-1.3 1.2-2.5 1.2-2.6 0 0-2.4-.9-2.4-3.6 0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7z"
-		/>
-	</svg>
-{/snippet}
-
-<!-- hooks.server.ts sets up the reader's page on the server, so links to it need a full page load. -->
 {#snippet windows()}
 	<svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
 		<path d="M0 2.29 6.55 1.4v6.07H0V2.29zm7.45-1.52L16 0v7.47H7.45V.77zM0 8.53h6.55v6.08L0 13.71V8.53zm7.45 0H16V16l-8.55-1.22V8.53z"/>
@@ -137,10 +126,6 @@
 			{@render windows()}
 			Download for Windows
 		</a>
-		<a class="secondary" href={resolve('/download/macos')} data-sveltekit-reload>
-			{@render apple()}
-			Download for macOS
-		</a>
 		<a class="web" href={resolve('/read')} data-sveltekit-reload>
 			<svg viewBox="0 0 16 16" aria-hidden="true">
 				<circle cx="8" cy="8" r="6.5" />
@@ -149,16 +134,6 @@
 			Read online
 		</a>
 	</div>
-{/snippet}
-
-{#snippet soon()}
-	<span class="soon">
-		<svg viewBox="0 0 12 16" aria-hidden="true">
-			<rect x="1.5" y="1" width="9" height="14" rx="2.2" />
-			<path d="M4.8 12.5h2.4" />
-		</svg>
-		iPhone and iPad app coming soon
-	</span>
 {/snippet}
 
 {#snippet card(item: (typeof reading)[number], i: number)}
@@ -194,15 +169,14 @@
 		<img class="logo" src="/icon.png" width="112" height="112" alt="" />
 		<h1>The Bible, instantly.</h1>
 		<p class="lede">
-			A very fast, native Bible reader for Windows and Mac, written in Rust.<br />
+			A very fast, native Bible reader for Windows, written in Rust.<br />
 			Type a reference, press Return, and the passage is already there.
 		</p>
 		<div class="cta">
 			{@render actions()}
 			<p class="meta">
-				Free · Version {VERSION} · {WINDOWS_ARCH} · {WINDOWS_SIZE}<DownloadCount repo={REPO_URL} />
+				Free · Version {VERSION} · {WINDOWS_ARCH} · {WINDOWS_SIZE}
 			</p>
-			{@render soon()}
 		</div>
 	</header>
 
@@ -233,7 +207,7 @@
 	<section id="shortcuts" class="section split" aria-labelledby="shortcuts-title">
 		<div class="intro" {@attach reveal}>
 			<h2 id="shortcuts-title">Shortcuts</h2>
-			<p>Every action has a key, and most can be changed in Settings. ⌘/ lists them all.</p>
+			<p>Every action has a key, and most can be changed in Settings. Ctrl+/ lists them all.</p>
 		</div>
 		<ul class="shortcuts" {@attach reveal}>
 			{#each shortcuts as shortcut (shortcut.label)}
@@ -252,9 +226,8 @@
 	<section id="install" class="section" aria-labelledby="install-title">
 		<div class="intro" {@attach reveal}>
 			<h2 id="install-title">Install</h2>
-			<p>Free. Available for {WINDOWS_ARCH}, macOS, or in your browser.</p>
+			<p>Free for {WINDOWS_ARCH}, or in your browser.</p>
 			{@render actions()}
-			{@render soon()}
 		</div>
 	</section>
 </main>
@@ -334,7 +307,6 @@
 		--solid-edge: 0 10px 30px rgba(0, 0, 0, 0.14);
 	}
 
-	/* The Mac download leads and the web version follows as the raised button. */
 	.download {
 		--fill: var(--solid);
 		--fill-hover: var(--solid-hover);
@@ -374,141 +346,91 @@
 	}
 
 	.download svg,
-	.secondary svg,
 	.web svg {
 		width: 15px;
 		height: 18px;
 		fill: currentColor;
 	}
 
-	.web svg {
-		width: 16px;
-		height: 16px;
-		fill: none;
-		stroke: currentColor;
-		stroke-width: 1.3;
-		stroke-linecap: round;
-	}
-
-	/* Phones and tablets can't run the Mac app, so there the web version leads. */
-	@media (max-width: 640px), (hover: none) and (pointer: coarse) {
-		.web {
-			order: -1;
-			--fill: var(--solid);
-			--fill-hover: var(--solid-hover);
-			--ink: var(--on-solid);
-			--edge: var(--solid-edge);
-		}
-
-		.download {
-			--fill: var(--raised);
-			--fill-hover: var(--raised), color-mix(in srgb, var(--fg) 8%, transparent);
-			--ink: var(--fg);
-			--edge: var(--raised-edge);
-		}
-	}
-
-	.soon {
-		display: inline-flex;
-		align-items: center;
-		gap: 7px;
-		padding: 5px 12px 5px 10px;
-		border-radius: 999px;
-		box-shadow: inset 0 0 0 1px var(--line);
-		color: var(--muted);
-		font-size: 13px;
-		line-height: 16px;
-	}
-
-	.soon svg {
-		width: 10px;
-		height: 14px;
-		fill: none;
-		stroke: currentColor;
-		stroke-width: 1.3;
-		stroke-linecap: round;
-	}
-
 	.meta {
 		margin: 0;
 		color: var(--muted);
-		font-size: 13px;
-		text-wrap: balance;
+		font-size: 12.5px;
+		letter-spacing: -0.01em;
 	}
 
 	.showcase {
-		max-width: 1248px;
+		max-width: 1100px;
 		margin: 0 auto;
-		padding: 8px 24px 72px;
-		animation: rise 1s 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+		padding: 0 24px 32px;
 	}
 
 	.section {
 		max-width: 1080px;
 		margin: 0 auto;
-		padding: 56px 24px;
-		border-top: 1px solid var(--line);
+		padding: 72px 24px;
 	}
 
 	h2 {
-		margin: 0 0 24px;
-		font: 600 22px/28px var(--display);
-		letter-spacing: -0.02em;
+		margin: 0;
+		font: 700 36px/1.15 var(--display);
+		letter-spacing: -0.025em;
 	}
 
 	.cards {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 20px;
+		margin-top: 28px;
 	}
 
 	.card {
-		display: flex;
-		flex-direction: column;
 		overflow: hidden;
-		border-radius: 16px;
-		background: var(--card);
-		box-shadow: var(--card-edge);
+		border-radius: 20px;
+		background: var(--surface);
+		box-shadow: var(--edge);
+		transition: box-shadow 0.2s;
 	}
 
 	.caption {
-		padding: 20px 22px 24px;
+		padding: 24px 28px 28px;
 	}
 
 	.heading {
 		display: flex;
-		align-items: center;
+		align-items: baseline;
 		justify-content: space-between;
 		gap: 12px;
 	}
 
 	h3 {
 		margin: 0;
-		font: 600 16px/20px var(--sans);
-		letter-spacing: -0.01em;
+		font: 600 20px/1.3 var(--sans);
+		letter-spacing: -0.02em;
 	}
 
 	.pause {
-		display: flex;
-		flex-shrink: 0;
-		align-items: center;
-		justify-content: center;
+		display: grid;
+		place-items: center;
 		width: 26px;
 		height: 26px;
-		margin: -3px -5px -3px 0;
+		padding: 0;
 		border: 0;
 		border-radius: 999px;
-		background: transparent;
+		background: var(--raised);
 		color: var(--muted);
 		cursor: pointer;
+		opacity: 0.6;
 		transition:
-			background 0.15s,
+			opacity 0.15s,
+			background-color 0.15s,
 			color 0.15s;
 	}
 
 	.pause:hover {
-		background: color-mix(in srgb, var(--fg) 7%, transparent);
-		color: var(--fg);
+		opacity: 1;
+		background: var(--fg);
+		color: var(--bg);
 	}
 
 	.pause svg {
@@ -518,48 +440,45 @@
 	}
 
 	.caption p {
-		margin: 6px 0 0;
+		margin: 10px 0 0;
 		color: var(--muted);
-		font-size: 14px;
-		line-height: 22px;
+		font-size: 15px;
+		line-height: 24px;
+		text-wrap: pretty;
 	}
 
 	.split {
 		display: grid;
-		grid-template-columns: 300px minmax(0, 1fr);
-		gap: 40px;
-	}
-
-	.intro h2 {
-		margin-bottom: 10px;
+		grid-template-columns: 1fr 1.3fr;
+		gap: 48px;
+		align-items: start;
 	}
 
 	.intro p {
-		max-width: 260px;
-		margin: 0;
+		max-width: 420px;
+		margin: 16px 0 0;
 		color: var(--muted);
-		font-size: 14px;
-		line-height: 22px;
+		font-size: 16px;
+		line-height: 26px;
 	}
 
-	#install .intro p {
-		max-width: none;
+	#install .intro {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		max-width: 540px;
+		margin: 0 auto;
 	}
 
-	.intro .actions {
-		justify-content: flex-start;
-		margin-top: 22px;
-	}
-
-	.intro .soon {
-		margin-top: 18px;
+	#install .actions {
+		margin-top: 28px;
 	}
 
 	.shortcuts {
-		display: grid;
-		grid-template-rows: repeat(5, auto);
-		grid-auto-flow: column;
-		gap: 0 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -568,123 +487,53 @@
 	.shortcuts li {
 		display: flex;
 		align-items: center;
-		gap: 14px;
-		padding: 9px 0;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 10px 14px;
+		border-radius: 12px;
+		background: var(--surface);
+		box-shadow: var(--edge);
 	}
 
 	.keys {
 		display: flex;
-		flex-shrink: 0;
-		gap: 4px;
-		width: 96px;
+		gap: 5px;
 	}
 
 	kbd {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 24px;
-		height: 24px;
-		padding: 0 6px;
+		display: inline-grid;
+		place-items: center;
+		min-width: 26px;
+		height: 26px;
+		padding: 0 7px;
 		border-radius: 6px;
-		background: linear-gradient(#2c2c2f, #222225);
-		box-shadow:
-			inset 0 1px 0 rgba(255, 255, 255, 0.1),
-			0 1px 0 #000;
-		color: #d1d1d6;
-		font: 12px/14px var(--sans);
+		background: var(--raised);
+		box-shadow: var(--raised-edge);
+		color: var(--muted);
+		font: 500 12.5px var(--sans);
 	}
 
 	kbd.primary {
-		background: linear-gradient(#fff, #f2f2f6 55%, #e6e6ec);
-		box-shadow:
-			inset 0 1px 0 #fff,
-			0 1px 0 #000;
-		color: #1c1c1e;
-		font-weight: 600;
+		color: var(--fg);
 	}
 
-	:global(:root[data-theme='light']) kbd {
-		background: linear-gradient(#fff, #f2f2f4);
-		box-shadow:
-			inset 0 0 0 0.5px rgba(0, 0, 0, 0.12),
-			0 1px 0 rgba(0, 0, 0, 0.16);
-		color: #3a3a3c;
+	.shortcuts .label {
+		color: var(--fg);
+		font-size: 14.5px;
 	}
 
-	:global(:root[data-theme='light']) kbd.primary {
-		background: linear-gradient(#48484a, #2c2c2e 55%, #1c1c1e);
-		box-shadow:
-			inset 0 1px 0 rgba(255, 255, 255, 0.18),
-			0 1px 0 rgba(0, 0, 0, 0.3);
-		color: #fff;
-	}
-
-	.label {
-		color: var(--muted);
-		font-size: 14px;
-		line-height: 18px;
-	}
-
-	@keyframes rise {
-		from {
-			opacity: 0;
-			translate: 0 16px;
-		}
-	}
-
-	@keyframes pop {
-		from {
-			opacity: 0;
-			scale: 0.86;
-		}
-	}
-
-	@media (max-width: 860px) {
-		.cards,
-		.split {
-			grid-template-columns: minmax(0, 1fr);
+	@media (max-width: 840px) {
+		.cards {
+			grid-template-columns: 1fr;
 		}
 
 		.split {
-			gap: 28px;
-		}
-	}
-
-	@media (max-width: 640px) {
-		.hero {
-			padding-top: 48px;
+			grid-template-columns: 1fr;
+			gap: 32px;
 		}
 
 		h1 {
-			font-size: 40px;
-		}
-
-		.lede {
-			font-size: 16px;
-			line-height: 25px;
-		}
-
-		.lede br {
-			display: none;
-		}
-
-		.actions {
-			flex-direction: column;
-			width: min(100%, 300px);
-		}
-
-		.showcase {
-			padding-inline: 16px;
-		}
-
-		.section {
-			padding-inline: 16px;
-		}
-
-		.shortcuts {
-			grid-template-rows: none;
-			grid-auto-flow: row;
+			font-size: 44px;
 		}
 	}
 </style>
