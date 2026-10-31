@@ -1,0 +1,24 @@
+{
+	"redirects": [
+		{
+			"source": "/download",
+			"destination": "https://github.com/Crown384/bible-rs/releases/download/v0.1.0/bible-rs.exe",
+			"permanent": false
+		},
+		{
+			"source": "/download/windows",
+			"destination": "https://github.com/Crown384/bible-rs/releases/download/v0.1.0/bible-rs.exe",
+			"permanent": false
+		},
+		{
+			"source": "/download/macos",
+			"destination": "https://github.com/michaelshimeles/bible-rs/releases/latest/download/bible-rs-universal.dmg",
+			"permanent": false
+		},
+		{
+			"source": "/read",
+			"destination": "https://simplymybible.com/read",
+			"permanent": false
+		}
+	]
+}
