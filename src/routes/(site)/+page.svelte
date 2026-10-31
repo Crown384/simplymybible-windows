@@ -34,7 +34,7 @@
 		downloadUrl: `${SITE_URL}/download`,
 		softwareVersion: VERSION
 	}).replaceAll('<', '\\u003c');
-	const jsonLd = `<script type="application/ld+json">${app}<\\/script>`;
+	const jsonLd = '<' + 'script type="application/ld+json">' + app + '<' + '/script>';
 
 	const player = new Player();
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import type { Snippet } from 'svelte';
-	import { NAME, TWITTER_URL } from './config.js';
+	import { NAME } from './config.js';
 
 	let { children }: { children?: Snippet } = $props();
 </script>
@@ -11,7 +11,7 @@
 		<img src="/icon.png" width="20" height="20" alt="" />
 		<span>{NAME}</span>
 	</div>
-	<p>Made by <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer">Stephen</a>. {@render children?.()}</p>
+	<p>Made by <a href="https://x.com/stephtioluwani" target="_blank" rel="noopener noreferrer">Stephen</a>. {@render children?.()}</p>
 	<div class="links">
 		<a href="/privacy">Privacy</a>
 		<a href="/support">Support</a>

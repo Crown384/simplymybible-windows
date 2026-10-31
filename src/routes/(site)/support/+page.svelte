@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { SITE_NAME, SITE_URL, TWITTER_URL } from '#lib/config.js';
+	import { SITE_NAME, SITE_URL } from '#lib/config.js';
 	import Doc from '#lib/Doc.svelte';
 
 	const title = `Support | ${SITE_NAME}`;
@@ -17,7 +17,7 @@
 <Doc heading="Support" meta="Bible for Windows">
 	<p class="lede">
 		Have a question or running into an issue with the Windows build? Reach out directly to Stephen on
-		<a href={TWITTER_URL} target="_blank" rel="noopener noreferrer">Twitter / X</a>.
+		<a href="https://x.com/stephtioluwani" target="_blank" rel="noopener noreferrer">Twitter / X</a>.
 	</p>
 
 	<h2>System Requirements</h2>
