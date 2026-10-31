@@ -150,7 +150,10 @@
 
 		<div class="toolbar">
 			<div class="cluster">
-				<span class="lights"><i></i><i></i><i></i></span>
+				<span class="win-brand">
+					<img src="/icon.png" width="16" height="16" alt="" />
+					<span>Bible</span>
+				</span>
 				<span class="moved" style:transform="translateX({side * 210}px)">
 					<span class="button"><Icon name="sidebar" size={14} /></span>
 					<span class="button pair"
@@ -181,6 +184,9 @@
 					{:else}
 						<span class="placeholder">Search</span>
 					{/if}
+				</span>
+				<span class="win-controls" aria-hidden="true">
+					<i>&#x2014;</i><i>&#x25A1;</i><i class="close">&#x2715;</i>
 				</span>
 			</div>
 		</div>
@@ -245,17 +251,6 @@
 		{/if}
 	</div>
 
-	<div class="menubar">
-		<svg class="apple" viewBox="0 0 17 21" aria-hidden="true">
-			<path
-				d="M11.2 4.3c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3zM12.1 5.8c-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.9-.8C4.4 5.9 3 6.8 2.2 8.1c-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.8 2.3 1.1 0 1.6-.7 2.9-.7 1.4 0 1.8.7 2.9.7 1.2 0 2-1.1 2.7-2.2.9-1.3 1.2-2.5 1.2-2.6 0 0-2.4-.9-2.4-3.6 0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7z"
-			/>
-		</svg>
-		<b>Bible</b>
-		<span>File</span><span>View</span><span>Go</span><span>Window</span><span>Help</span>
-		<span class="spacer"></span>
-		<span>Tue Oct 20&nbsp;&nbsp;9:41 AM</span>
-	</div>
 
 	{#if caption && captionShown > 0}
 		<div class="caption" style:opacity={captionShown} style:transform="translateY({(1 - captionShown) * 6}px)">
@@ -290,7 +285,7 @@
 	.window {
 		position: absolute;
 		left: 80px;
-		top: 62px;
+		top: 48px;
 		width: 1040px;
 		height: 624px;
 		overflow: hidden;
@@ -387,25 +382,42 @@
 		gap: 7px;
 	}
 
-	.lights {
+	.win-brand {
 		display: flex;
-		gap: 7px;
+		align-items: center;
+		gap: 8px;
 		padding-right: 12px;
+		font-weight: 600;
+		font-size: 12px;
+		color: var(--ink);
 	}
 
-	.lights i {
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		background: #ff5f57;
+	.win-brand img {
+		display: block;
+		border-radius: 3px;
 	}
 
-	.lights i:nth-child(2) {
-		background: #febc2e;
+	.win-controls {
+		display: flex;
+		align-items: center;
+		gap: 2px;
+		margin-left: 6px;
 	}
 
-	.lights i:nth-child(3) {
-		background: #28c840;
+	.win-controls i {
+		display: grid;
+		place-items: center;
+		width: 24px;
+		height: 24px;
+		font-style: normal;
+		font-size: 11px;
+		color: var(--ink-2);
+		border-radius: 4px;
+	}
+
+	.win-controls i.close:hover {
+		background: #e81123;
+		color: #fff;
 	}
 
 	.button {
@@ -527,29 +539,6 @@
 		transform-origin: 50% 0;
 	}
 
-	.menubar {
-		position: absolute;
-		inset: 0 0 auto;
-		display: flex;
-		align-items: center;
-		gap: 18px;
-		height: 28px;
-		padding: 0 16px;
-		background: rgba(10, 10, 14, 0.32);
-		backdrop-filter: blur(20px) saturate(160%);
-		color: #f4f4f5;
-		font-size: 13px;
-	}
-
-	.apple {
-		width: 13px;
-		height: 16px;
-		fill: #f4f4f5;
-	}
-
-	.spacer {
-		flex: 1;
-	}
 
 	.caption {
 		position: absolute;
