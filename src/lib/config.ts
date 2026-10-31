@@ -10,7 +10,7 @@ export const NAME = 'Bible';
 export const SITE_NAME = 'Simply My Bible';
 
 /** Creator Twitter / X URL */
-export const TWITTER_USERNAME = 'stephentioluwani'; // Replace with your Twitter username
+export const TWITTER_USERNAME = 'stephtioluwani';
 export const TWITTER_URL = `https://x.com/${TWITTER_USERNAME}`;
 
 /** Direct download for Windows executable hosted on GitHub releases */
