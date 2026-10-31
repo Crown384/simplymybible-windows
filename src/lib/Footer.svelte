@@ -13,8 +13,8 @@
 	</div>
 	<p>Made by <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer">Stephen</a>. {@render children?.()}</p>
 	<div class="links">
-		<a href={resolve('/(site)/privacy')}>Privacy</a>
-		<a href={resolve('/(site)/support')}>Support</a>
+		<a href="/privacy">Privacy</a>
+		<a href="/support">Support</a>
 	</div>
 </footer>
 

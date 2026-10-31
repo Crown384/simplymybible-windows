@@ -14,14 +14,14 @@
 
 <nav class="nav">
 	<div class="bar">
-		<a class="brand" href="{resolve('/(site)')}#top" aria-label="{NAME}, home">
+		<a class="brand" href="/#top" aria-label="{NAME}, home">
 			<img src="/icon.png" width="26" height="26" alt="" />
 			<span>{NAME}</span>
 		</a>
 		<div class="links">
-			<a class="link" href="{resolve('/(site)')}#features">Features</a>
-			<a class="link" href="{resolve('/(site)')}#shortcuts">Shortcuts</a>
-			<a class="link" href="{resolve('/(site)')}#install">Install</a>
+			<a class="link" href="/#features">Features</a>
+			<a class="link" href="/#shortcuts">Shortcuts</a>
+			<a class="link" href="/#install">Install</a>
 			<button type="button" class="theme" aria-label="Light mode" aria-pressed={theme.current === 'light'} onclick={toggle}>
 				<svg class="moon" viewBox="0 0 16 16" aria-hidden="true">
 					<path d="M13.5 9.8A5.8 5.8 0 0 1 6.2 2.5a5.8 5.8 0 1 0 7.3 7.3z" />

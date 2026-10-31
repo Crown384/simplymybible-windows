@@ -10,7 +10,10 @@ export default defineConfig({
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
 			adapter: adapter(),
-			serviceWorker: { register: false }
+			serviceWorker: { register: false },
+			prerender: {
+				handleMissingId: 'ignore'
+			}
 		})
 	]
 });
