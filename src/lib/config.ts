@@ -21,4 +21,4 @@ export const DOWNLOAD_URL = WINDOWS_DOWNLOAD_URL;
 /** Web reader */
 export const WEB_READER_URL = 'https://simplymybible.com/read';
 
-export const SITE_URL = 'https://simplymybible-windows.vercel.app';
+export const SITE_URL = 'https://bible.stephentioluwani.tech';

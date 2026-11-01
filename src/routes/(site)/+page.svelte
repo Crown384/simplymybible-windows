@@ -19,7 +19,7 @@
 		'A very fast, native Bible reader for Windows. Beautifully typeset, searchable as you type, with highlights, notes and bookmarks kept on your computer.';
 	const url = `${SITE_URL}/`;
 	const image = `${SITE_URL}/og.jpg`;
-	const imageAlt = `The ${NAME} app icon and name beside the reader open at John 1`;
+	const imageAlt = `${NAME}: a fast, native reader for Windows`;
 
 	const app = JSON.stringify({
 		'@context': 'https://schema.org',
@@ -101,11 +101,14 @@
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:image" content={image} />
+	<meta property="og:image:secure_url" content={image} />
 	<meta property="og:image:type" content="image/jpeg" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta property="og:image:alt" content={imageAlt} />
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@stephtioluwani" />
+	<meta name="twitter:creator" content="@stephtioluwani" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={image} />
