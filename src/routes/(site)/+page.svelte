@@ -172,6 +172,9 @@
 			A very fast, native Bible reader for Windows, written in Rust.<br />
 			Type a reference, press Return, and the passage is already there.
 		</p>
+		<p class="origin">
+			Originally <a href="https://simplymybible.com/" target="_blank" rel="noopener noreferrer">built for Mac</a> by Rasmic, modified for Windows by Stephen.
+		</p>
 		<div class="cta">
 			{@render actions()}
 			<p class="meta">
@@ -261,6 +264,10 @@
 		animation-delay: 0.24s;
 	}
 
+	.hero > :nth-child(5) {
+		animation-delay: 0.32s;
+	}
+
 	.logo {
 		display: block;
 		filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 40px rgba(110, 140, 255, 0.14));
@@ -285,6 +292,25 @@
 		font-size: 18px;
 		line-height: 29px;
 		text-wrap: pretty;
+	}
+
+	.origin {
+		max-width: 580px;
+		margin: 14px 0 0;
+		color: var(--muted);
+		font-size: 14px;
+		line-height: 22px;
+	}
+
+	.origin a {
+		color: var(--fg);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		transition: color 0.15s;
+	}
+
+	.origin a:hover {
+		color: #5d87ff;
 	}
 
 	.cta {

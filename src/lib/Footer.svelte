@@ -11,7 +11,7 @@
 		<img src="/icon.png" width="20" height="20" alt="" />
 		<span>{NAME}</span>
 	</div>
-	<p>Made by <a href="https://x.com/stephtioluwani" target="_blank" rel="noopener noreferrer">Stephen</a>. {@render children?.()}</p>
+	<p>Originally built for Mac by <a href="https://x.com/rasmic" target="_blank" rel="noopener noreferrer">Rasmic</a>, modified for Windows by <a href="https://x.com/stephtioluwani" target="_blank" rel="noopener noreferrer">Stephen</a>. {@render children?.()}</p>
 	<div class="links">
 		<a href="/privacy">Privacy</a>
 		<a href="/support">Support</a>
